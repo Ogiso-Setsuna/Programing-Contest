@@ -1,0 +1,20 @@
+/*
+   code-vs 1202 求和问题
+   http://codevs.cn/problem/1202/
+*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a;
+    int sum=0;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>a;
+        sum+=a;
+    }
+    cout<<sum<<endl;
+}
