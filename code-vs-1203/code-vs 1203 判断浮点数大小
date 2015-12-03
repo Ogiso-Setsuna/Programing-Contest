@@ -1,0 +1,24 @@
+/*
+   code-vs 1203 判断浮点数大小问题
+   http://codevs.cn/problem/1203/
+*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    double a,b,t;
+	cin>>a;
+	cin>>b;
+	if(a<b)
+	{
+		t=a;
+		a=b;
+		b=t;
+	}
+	if(a-b<0.00000001)
+		cout<<"yes"<<endl;
+	else
+		cout<<"no"<<endl;
+	return 0;
+}
