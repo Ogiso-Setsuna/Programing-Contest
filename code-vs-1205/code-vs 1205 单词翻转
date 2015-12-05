@@ -1,0 +1,30 @@
+/*
+    code-vs 1205 单词翻转问题
+    http://codevs.cn/problem/1205/
+*/
+
+#include <iostream>
+#include <cstdio>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int i,ch,n=0;
+	string str;
+	string a[100];
+	while(cin>>str)
+	{
+		a[n]=str;
+		n++;
+		ch=getchar();
+		if(ch==10)
+			break;
+	}
+
+	for(i=n-1;i>=0;i--)
+	{
+		cout<<a[i]<<" ";
+	}
+	return 0;
+}
