@@ -1,0 +1,36 @@
+/*
+   code-vs 1012 最大公约数和最小公倍数问题
+   http://codevs.cn/problem/1012/
+*/
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x,y,divisor,mutiple;               //x为最大公约数,y为最小公倍数
+	int sum=0;
+	cin>>x>>y;
+	for(int i=x;i<y/2;i+=x)
+	{
+		int j;
+		if((x*y)%i==0)
+			j=x*y/i;
+		if(j<i)
+			continue;
+		divisor=0;
+		for(int k=x;k<=i;k+=x)
+		{
+			if(i%k==0&&j%k==0)
+			{
+				divisor=k;
+				mutiple=i*j/divisor;
+			}
+		}
+		if(divisor==x&&mutiple==y)
+		{
+			sum++;
+//		cout<<i<<" "<<j<<" "<<x<<" "<<y<<endl;
+		}
+	}
+	cout<<sum*2<<endl;
+	return 0;
+}
