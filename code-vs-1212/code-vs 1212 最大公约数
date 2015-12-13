@@ -1,0 +1,24 @@
+/*
+   code-vs 1212 最大公约数问题
+   http://codevs.cn/problem/1212/
+*/
+#include <iostream>
+using namespace std;
+int main()
+{
+	int a,b,temp,divisor;
+	cin>>a>>b;
+	if(a>b)
+	{
+		temp=a;
+		a=b;
+		b=temp;
+	}
+	for(int i=1;i<=a;i++)
+	{
+		if(a%i==0&&b%i==0)
+			divisor=i;
+	}
+	cout<<divisor<<endl;
+	return 0;
+}
