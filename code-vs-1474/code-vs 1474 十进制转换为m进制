@@ -1,0 +1,28 @@
+/*
+   code-vs 1474 十进制转换为m进制
+   http://codevs.cn/problem/1474/
+*/
+#include <iostream>
+using namespace std;
+int main()
+{
+	int n,m,i,a[7],num=0;
+	cin>>n>>m;
+	for(i=0;;i++)
+	{
+		num++;
+		a[i]=n%m;
+		n=(n-a[i])/m;
+		if(n==0)
+			break;
+	}
+	for(i=num-1;i>=0;i--)
+	{
+		if(a[i]>=10)
+			cout<<(char)(a[i]-10+'A');
+		else
+			cout<<a[i];
+	}
+	cout<<endl;
+	return 0;
+}
