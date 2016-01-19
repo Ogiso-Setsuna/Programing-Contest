@@ -1,0 +1,27 @@
+/*
+   code-vs 1475 m进制转换为十进制
+   http://codevs.cn/problem/1475/
+*/
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int m,t,m1,sum=0;
+	string n;
+	cin>>n>>m;
+	m1=m;
+
+	for(int i=n.length()-1;i>=0;i--)
+	{
+		if(n[i]>='0'&&n[i]<='9')
+			n[i]=n[i]-'0';
+		else
+			n[i]=n[i]-'A'+10;
+		sum+=n[i]*m/m1;
+		m=m*m1;
+	}
+	cout<<sum<<endl;
+	return 0;
+}
