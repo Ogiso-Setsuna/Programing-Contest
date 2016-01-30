@@ -1,0 +1,30 @@
+/*
+  code-vs 1057 津津的储蓄计划
+  http://codevs.cn/problem/1057/
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int i,n,m1=0,m2=0;
+	bool flag=true;
+	for(i=1;i<=12;i++)
+	{
+		cin>>n;
+		if(m1+300<n)
+		{
+			cout<<"-"<<i<<endl;
+			flag=false;
+			break;
+		}
+		m2+=(m1-n+300)/100;
+		m1=(m1-n+300)%100;
+	}
+	if(flag)
+	{
+		cout<<m2*100*1.2+m1<<endl;
+	}
+	return 0;
+}
