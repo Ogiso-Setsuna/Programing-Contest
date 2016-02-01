@@ -1,0 +1,70 @@
+/*
+  code-vs 1381 贪婪的送礼者
+  http://codevs.cn/problem/1381/
+*/
+
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+	int i,n;
+	cin>>n;
+	string name[10];
+	int get_money[10],send_money[10];
+	for(i=0;i<n;i++)
+	{
+		cin>>name[i];
+		get_money[i]=0;
+		send_money[i]=0;
+	}
+	for(i=0;i<n;i++)
+	{
+		string temp_name;
+		int temp_money;
+		int num;
+		cin>>temp_name;
+		cin>>temp_money>>num;
+		int j,k;
+		for(j=0;j<n;j++)
+		{
+			if(name[j]==temp_name)
+			{
+				if(num==0)
+					send_money[j]=0;
+				else
+				{
+					if(temp_money%num!=0)
+					{
+						send_money[j]=temp_money-temp_money%num;
+					}
+				    else
+					    send_money[j]=temp_money;
+				}
+			}
+		}
+
+		for(j=0;j<num;j++)
+		{
+			string get_name;
+			cin>>get_name;
+			for(k=0;k<n;k++)
+			{
+				if(name[k]==get_name)
+				{
+					get_money[k]+=temp_money/num;
+				}
+			}
+		}
+		
+	}
+
+	for(i=0;i<n;i++)
+	{
+		cout<<name[i]<<" "<<get_money[i]-send_money[i]<<endl;
+	}
+
+	return 0;
+}
