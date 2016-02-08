@@ -1,0 +1,51 @@
+/*
+   蓝桥-basic-16 分解质因数
+   http://lx.lanqiao.org/problem.page?gpid=T57
+*/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	bool f(int n);
+	int a,b;
+	cin>>a>>b;
+	int j;
+	for(int i=a;i<=b;i++)
+	{
+		cout<<i<<"=";
+		if(f(i))
+			cout<<i<<endl;
+		else
+		{
+			int i1=i;
+			while(i1)
+			{
+				for(j=2;j<=i1;j++)
+				{
+					if(i1%j==0&&i1!=j)
+					{
+						cout<<j<<"*";
+						break;
+					}
+					else if(i1%j==0&&i1==j)
+					{
+						cout<<j<<endl;
+						break;
+					}
+				}
+				i1=i1/j;
+			}
+		}
+	}
+	return 0;
+}
+bool f(int n)
+{
+	for(int i=2;i<=n/2;i++)
+	{
+		if(n%i==0)
+			return false;
+	}
+	return true;
+}
