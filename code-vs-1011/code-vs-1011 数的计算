@@ -1,0 +1,25 @@
+/*
+   code-vs-1011 数的计算
+   http://codevs.cn/problem/1011/
+*/
+#include <iostream>
+using namespace std;
+
+static int num=0;
+
+int main()
+{
+	void find(int n);
+	int n;
+	cin>>n;
+	find(n);
+	cout<<num<<endl;
+	return 0;
+}
+
+void find(int n)
+{
+	for(int i=1;i<=n/2;i++)
+		find(i);
+	num++;
+}
