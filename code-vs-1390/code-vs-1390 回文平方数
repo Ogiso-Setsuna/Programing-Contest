@@ -1,0 +1,77 @@
+/*
+  code-vs 1390 回文平方数
+  http://codevs.cn/problem/1390/
+*/
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int n;
+int main()
+{
+	bool IsHui(int k);
+	void Print(int k);
+    cin>>n;
+    for(int i=1;i<=90000;i++)
+    {
+    	int k1=sqrt(i);
+    	if(k1*k1!=i)
+    	  continue;
+    	if(IsHui(i))
+    	{
+    			Print(sqrt(i));
+    			cout<<" ";
+    			Print(i);
+    			cout<<endl;
+    	}
+    }
+	return 0;
+}
+
+void Print(int k)
+{
+	int n1=k;
+	int a[100];
+	int i=0;
+	while(n1!=0)
+	{
+		a[i++]=n1%n;
+		n1=n1/n;
+	}
+	char s[100]={0};
+	int num=0;
+	for(int j=i-1;j>=0;j--)
+	{
+		if(a[j]>=10)
+		{
+//			cout<<char(a[j]-10+'A');
+			s[num++]=a[j]-10+'A';
+		}
+		else
+		{
+//			cout<<a[j];
+			s[num++]=a[j]+'0';
+		}
+	}
+	cout<<s;
+}
+
+bool IsHui(int k)
+{
+	int n1=k;
+	int a[100];
+	int i=0;
+	while(n1!=0)
+	{
+		a[i++]=n1%n;
+		n1=n1/n;
+	}
+	for(int j=0;j<i;j++)
+	{
+		if(a[j]!=a[i-j-1])
+		  return false;
+	}
+	return true;
+}
+
+
