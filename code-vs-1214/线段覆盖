@@ -1,0 +1,65 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+struct LINE
+{
+	int l;
+	int r;
+};
+
+LINE line[100];
+
+int cmp(LINE s1,LINE s2)
+{
+	if(s1.l<s2.l)
+	  return 1;
+	else if(s1.l>s2.l)
+	  return 0;
+	else
+	{
+		return s1.r<s2.r;
+	}
+}
+
+int main()
+{
+	int n;
+	cin>>n;
+	int n1,n2;
+	for(int i=1;i<=n;i++)
+	{
+		cin>>n1>>n2;
+		if(n1>n2)
+		{
+			int t=n1;
+			n1=n2;
+			n2=t;
+		}
+		line[i].l=n1;
+		line[i].r=n2;
+	}
+	sort(line+1,line+n+1,cmp);
+	int l=line[1].l,r=line[1].r;
+	int num=1;
+	for(int i=2;i<=n;i++)
+	{
+		if(line[i].l>=r)
+		{
+			num++;
+			l=line[i].l;
+			r=line[i].r;
+		}
+		else
+		{
+			if(line[i].r<=r)
+			{
+				l=line[i].l;
+				r=line[i].r;
+			}
+		}
+	}
+	cout<<num;
+    return 0;
+}
